@@ -1,5 +1,4 @@
 import Axios from "axios";
-import thunk from 'redux-thunk'
 
 export const FETCH_SMURFS_START = 'FETCH_SMURFS_START';
 export const FETCH_SMURFS_SUCCESS = 'FETCH_SMURFS_SUCCESS';
@@ -26,9 +25,10 @@ export const addSmurf = (smurf) => dispatch => {
     Axios.post('http://localhost:3333/smurfs', smurf)
             .then(res => {
                 console.log(res)
+                dispatch({type: ADD_SMURF_SUCCESS, payload: res.data})
             })
             .catch(err => {
-                console.log(err)
+                dispatch({type: ADD_SMURF_ERROR, payload: err})
             })
 
 }

@@ -16,6 +16,7 @@ function AddSmurfs(props) {
     }
     return (
         <div>
+            <h1>Add a New Smurf!</h1>
             <form onSubmit={handleSubmit}>
                 <label>
                     Name: {''}
